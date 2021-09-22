@@ -10,13 +10,13 @@ const loginRegisterComponent = () => {
                 {/* <!-- Main Start --> */}
                 <div className="formContainer signUp">
                     <form action="#" onsubmit="return false">
-                        <h1>Sign up</h1>
+                        <h1>Sign Up</h1>
                         <div className="socialMedia">
                         <a href="/" className="social"><i className="fab fa-facebook-f"></i></a>
                         <a href="/" className="social"><i className="fab fa-google-plus-g"></i></a>
                         <a href="/" className="social"><i className="fab fa-linkedin-in"></i></a>
                         </div>
-                        or use email
+                        Or use email
                         <input type="text" placeholder="Name" id="nameSignup" />
                         <input type="email" placeholder="Email" id="emailSignup" />
                         <input type="password" placeholder="Password" id="passSignup" />
@@ -59,7 +59,7 @@ const loginRegisterComponent = () => {
 
                         <h1>Welcome Back!</h1>
                         <p>Silahkan login kalau sudah punya akun</p>
-                        <button className="sliderBtn" id="login" onClick={loginBtn}>login</button>
+                        <button className="sliderBtn" id="login" onClick={loginBtn}>Login</button>
                         </div>
                         <div className="sliderContainer sliderR">
                         <img src={mainLogo} alt="" />
