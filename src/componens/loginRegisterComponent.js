@@ -1,6 +1,6 @@
 import React from 'react'
 import mainLogo from '../pictures/Glints K-6-logos_black.png'
-// import './login/script.js'
+import './login/script.js'
 
 const loginRegisterComponent = () => {
     return (
@@ -12,9 +12,9 @@ const loginRegisterComponent = () => {
                     <form action="#" onsubmit="return false">
                         <h1>Sign up</h1>
                         <div className="socialMedia">
-                        <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                        <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                        <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+                        <a href="/" className="social"><i className="fab fa-facebook-f"></i></a>
+                        <a href="/" className="social"><i className="fab fa-google-plus-g"></i></a>
+                        <a href="/" className="social"><i className="fab fa-linkedin-in"></i></a>
                         </div>
                         or use email
                         <input type="text" placeholder="Name" id="nameSignup" />
@@ -37,9 +37,9 @@ const loginRegisterComponent = () => {
                         <h1>Login</h1>
 
                         <div className="socialMedia">
-                        <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                        <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                        <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+                        <a href="/" className="social"><i className="fab fa-facebook-f"></i></a>
+                        <a href="/" className="social"><i className="fab fa-google-plus-g"></i></a>
+                        <a href="/" className="social"><i className="fab fa-linkedin-in"></i></a>
                         </div>
                         <span>Or use your account </span>
                         <input type="email" placeholder="Email" id="email" />
@@ -59,13 +59,13 @@ const loginRegisterComponent = () => {
 
                         <h1>Welcome Back!</h1>
                         <p>Silahkan login kalau sudah punya akun</p>
-                        <button className="sliderBtn" id="login">login</button>
+                        <button className="sliderBtn" id="login" onClick={loginBtn}>login</button>
                         </div>
                         <div className="sliderContainer sliderR">
                         <img src={mainLogo} alt="" />
                         <h1>Sign up</h1>
                         <p>Daftarkan dirimu kalau belum punya akun</p>
-                        <button className="sliderBtn" id="signUp">Sign Up</button>
+                        <button className="sliderBtn" id="signUp" onClick={signUpBtn}>Sign Up</button>
                         </div>
                     </div>
                 </div>
@@ -73,6 +73,15 @@ const loginRegisterComponent = () => {
             </div>
         </div>
     )
+}
+
+function signUpBtn() {
+    const container = document.getElementById("container");
+    container.classList.add("active");
+}
+function loginBtn() {
+    const container = document.getElementById("container");
+    container.classList.remove("active");
 }
 
 export default loginRegisterComponent
