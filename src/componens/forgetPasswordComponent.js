@@ -12,7 +12,7 @@ const forgetPasswordComponent = () => {
                     <input type="email" placeholder="Email" id="email" style={{marginTop:'25px'}} />
                     <input type="password" placeholder="New Password" id="pass" />
                     <button type="submit" onclick="Forget()">Reset Password</button>
-                    <a href="./index.html">Back to Sign In?</a>
+                    <a href="/">Back to Sign In?</a>
                 </form>
             </div>
         </div>

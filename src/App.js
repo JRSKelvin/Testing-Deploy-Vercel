@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import ForgetPassword from './componens/login/forget'
+import LoginRegister from './componens/login/index'
+import {BrowserRouter, BrowserRouter as Router, Route,} from "react-router-dom"
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <ForgetPassword />
+        <BrowserRouter>
+          <Route path="/" exact component={LoginRegister} />
+          <Route path="/forgetpassword" exact component={ForgetPassword} />
+        </BrowserRouter>
+        {/* <ForgetPassword /> */}
+        {/* <LoginRegister /> */}
       </div>
     )
   }
