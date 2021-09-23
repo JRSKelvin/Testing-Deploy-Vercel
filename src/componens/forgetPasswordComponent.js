@@ -57,7 +57,8 @@ function Forget() {
 
             user[0].password = passInput;
             alert("Password Sudah Diganti");
-            //console.clear();
+            console.clear();
+            window.location.href ="/"
           }
         } else {
           alert("Email tidak ditemukan");
