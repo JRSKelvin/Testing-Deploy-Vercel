@@ -12,6 +12,7 @@ const forgetPasswordComponent = () => {
                     Type your email and new password here!
                     <input type="email" placeholder="Email" id="email" style={{marginTop:'25px'}} />
                     <input type="password" placeholder="New Password" id="pass" />
+                    <input type="text" placeholder="Answer Question Recovery" id="answer" />
                     <button type="submit" onClick={Forget}>Reset Password</button>
                     <a href="/">Back to Sign In?</a>
                 </form>
@@ -24,6 +25,7 @@ function Forget() {
   if (Forget) {
     let emailInput = document.getElementById("email").value;
     let passInput = document.getElementById("pass").value;
+    let answerInput = document.getElementById("answer").value;
 
     axios.get(
         "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin"
@@ -32,36 +34,43 @@ function Forget() {
         console.log(response.data);
         const myData = response.data;
         let user = myData.filter((item) => item.email === emailInput);
+        
         console.log(user);
         if (user.length > 0) {
           if (user[0].email === emailInput) {
-            if (passInput === "" || passInput === null) {
-              alert("Harap memasukkan password");
-              return false;
-            } else {
-              if (passInput.length < 6) {
-                alert("Password minimal 6 karakter");
-                document.getElementById("pass").value = "";
+            if (user[0].answerrecovery === answerInput){
+              if (passInput === "" || passInput === null) {
+                alert("Harap memasukkan password");
                 return false;
+              } else {
+                if (passInput.length < 6) {
+                  alert("Password minimal 6 karakter");
+                  document.getElementById("pass").value = "";
+                  return false;
+                }
               }
+              const getUserID = user[0].id;
+              const changePassword = { password: passInput };
+              console.log(getUserID, changePassword);
+
+              axios.put(
+                "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
+                  getUserID,
+                changePassword
+              );
+
+              user[0].password = passInput;
+              alert("Password Berhasil Diganti, Silahkan Login Kembali");
+              console.clear();
+              window.location.href ="/"
+            }else {
+              alert("Email Tidak Ditemukan Atau Jawaban Recovery Salah");
+              console.clear();
             }
-            const getUserID = user[0].id;
-            const changePassword = { password: passInput };
-            console.log(getUserID, changePassword);
-
-            axios.put(
-              "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
-                getUserID,
-              changePassword
-            );
-
-            user[0].password = passInput;
-            alert("Password Sudah Diganti");
-            console.clear();
-            window.location.href ="/"
           }
         } else {
-          alert("Email tidak ditemukan");
+          alert("Email Tidak Ditemukan Atau Jawaban Recovery Salah");
+          console.clear();
         }
       })
       
