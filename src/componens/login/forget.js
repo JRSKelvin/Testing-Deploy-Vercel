@@ -20,6 +20,12 @@ function Forget() {
       let emailInput = document.getElementById("email").value;
       let passInput = document.getElementById("pass").value;
       let answerInput = document.getElementById("answer").value;
+
+      function ClearText(){
+        document.getElementById("email").value = "";
+        document.getElementById("pass").value = "";
+        document.getElementById("answer").value ="";
+      }
   
       axios.get(
           "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin"
@@ -70,7 +76,9 @@ function Forget() {
                   text: 'Password Berhasil Diganti, Silahkan Login Kembali',
                   icon: 'success',
                   timer: 2000
-                }).then(function() {
+                })
+                .then(ClearText())
+                .then(function() {
                   window.location = "/";
               });
                 console.clear();
@@ -83,6 +91,7 @@ function Forget() {
                   text: 'Email Tidak Ditemukan Atau Jawaban Recovery Salah'
                 })
                 console.clear();
+                ClearText();
               }
             }
           } else {
@@ -93,6 +102,7 @@ function Forget() {
               text: 'Email Tidak Ditemukan Atau Jawaban Recovery Salah'
             })
             console.clear();
+            ClearText();
           }
         })
         
