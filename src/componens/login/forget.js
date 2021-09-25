@@ -19,16 +19,18 @@ function Forget() {
     if (Forget) {
       let emailInput = document.getElementById("email").value;
       let passInput = document.getElementById("pass").value;
+      let questionInput = document.getElementById("question").value;
       let answerInput = document.getElementById("answer").value;
 
       function ClearText(){
         document.getElementById("email").value = "";
         document.getElementById("pass").value = "";
         document.getElementById("answer").value ="";
+        document.getElementById("question").value ="Choose Recovery Question";
       }
   
       axios.get(
-          "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin"
+          "http://localhost:5000/forgetpassword/"
         )
         .then((response) => {
           console.log(response.data);
@@ -38,7 +40,7 @@ function Forget() {
           console.log(user);
           if (user.length > 0) {
             if (user[0].email === emailInput) {
-              if (user[0].answerrecovery === answerInput){
+              if (user[0].answerrecovery === answerInput && user[0].questionrecovery === questionInput){
                 if (passInput === "" || passInput === null) {
                   //alert("Harap memasukkan password");
                   Swal.fire({
@@ -59,12 +61,12 @@ function Forget() {
                     return false;
                   }
                 }
-                const getUserID = user[0].id;
+                const getUserID = user[0]._id;
                 const changePassword = { password: passInput };
                 console.log(getUserID, changePassword);
   
-                axios.put(
-                  "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
+                axios.post(
+                  "http://localhost:5000/forgetpassword/update/" +
                     getUserID,
                   changePassword
                 );
@@ -88,7 +90,7 @@ function Forget() {
                 Swal.fire({
                   icon: 'error',
                   title: 'Oops...',
-                  text: 'Email Tidak Ditemukan Atau Jawaban Recovery Salah'
+                  text: 'Email Tidak Ditemukan Atau Jawaban/Pertanyaan Recovery Salah'
                 })
                 console.clear();
                 ClearText();
@@ -99,7 +101,7 @@ function Forget() {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Email Tidak Ditemukan Atau Jawaban Recovery Salah'
+              text: 'Email Tidak Ditemukan Atau Jawaban/Pertanyaan Recovery Salah'
             })
             console.clear();
             ClearText();

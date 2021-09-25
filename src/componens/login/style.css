@@ -72,6 +72,14 @@
     margin: 10px 0;
     width: 100%;
  }
+
+ select {
+   background-color: #eee;
+   border: none;
+   padding: 15px 15px;
+   margin: 10px 0;
+   width: 100%;
+ }
  
  /* -----------Login----------- */
  

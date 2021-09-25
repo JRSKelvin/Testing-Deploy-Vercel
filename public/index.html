@@ -27,6 +27,16 @@
     <title>React App</title>
   </head>
   <body>
+    <script>
+      if ('geolocation' in navigator) {
+        console.log("Geolocation Avaliable");
+        navigator.geolocation.getCurrentPosition(position =>{
+          console.log(position);
+        })
+      }else{
+        console.log("Geolocaiton Unavaliable");
+      }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
