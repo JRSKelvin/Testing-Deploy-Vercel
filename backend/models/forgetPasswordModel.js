@@ -9,6 +9,7 @@ const forgetPasswordSchema = new Schema({
     admin:{type: String, required: true},
     questionrecovery:{type: String, required: true},
     answerrecovery:{type: String, required: true},
+    location:{type: String, required: true},
 }, {
     timestamps: true.valueOf,
 });

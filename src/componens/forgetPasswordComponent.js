@@ -1,7 +1,7 @@
 import React from 'react'
 import mainLogo from '../pictures/Glints K-6-logos_black.png'
-import axios from 'axios'
-import Swal from 'sweetalert2'
+// import axios from 'axios'
+// import Swal from 'sweetalert2'
 import { Forget2 } from './login/forget'
 
 const forgetPasswordComponent = () => {

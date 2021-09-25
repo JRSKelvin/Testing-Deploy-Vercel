@@ -37,6 +37,7 @@ router.route('/update/:id').post((req, res) => {
     ForgetPasswords.findById(req.params.id)
     .then(userdata => {
         userdata.password = req.body.password;
+        userdata.location = req.body.location;
 
         userdata.save()
         .then(() => res.json('User Updated!'))
