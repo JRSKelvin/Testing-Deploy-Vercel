@@ -44,7 +44,7 @@ const loginRegisterComponent = () => {
                         <span>Or use your account </span>
                         <input type="email" placeholder="Email" id="email" />
                         <input type="password" placeholder="Password" id="pass" />
-                        <a href="./forgetpassword">Forgot your password?</a>
+                        <a href="./forgetpassword?#">Forgot your password?</a>
 
                         <button type="submit" onclick="Login()">Login</button>
                     </form>
