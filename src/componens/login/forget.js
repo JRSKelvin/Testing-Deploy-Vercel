@@ -21,8 +21,6 @@ function Forget() {
       let passInput = document.getElementById("pass").value;
       let questionInput = document.getElementById("question").value;
       let answerInput = document.getElementById("answer").value;
-      let getLatitude = document.getElementById("textLat").value;
-      let getLongitude = document.getElementById("textLon").value;
 
       function ClearText(){
         document.getElementById("email").value = "";
@@ -64,7 +62,7 @@ function Forget() {
                   }
                 }
                 const getUserID = user[0]._id;
-                const changePassword = { password: passInput, location: {getLatitude, getLongitude} };
+                const changePassword = { password: passInput };
                 console.log(getUserID, changePassword);
   
                 axios.post(
